@@ -1,9 +1,6 @@
-const fs = require('fs'),
-      process = require('process');
-
-// *** MAKE SURE YOU'RE RUNNING THIS SCRIPT FROM THE PARENT COMPONENT DIRECTORY WHERE YOU WANT TO CREATE A CHILD *** //
-
 // reading in file input here:
+
+
 fs.readFile('C:\\Users\\mcravens\\dev\\reactCompGenV2\\src\\ComponentTemplate.jsx', 'utf-8',
   (err, templateFileString) => {
 
@@ -34,7 +31,7 @@ fs.readFile('C:\\Users\\mcravens\\dev\\reactCompGenV2\\src\\ComponentTemplate.js
                   else {
 
                     // create new JSX && SCSS files for new component:
-                    var modifiedData = templateFileString.replace(/##component_name##/g, component);
+                    const modifiedData = templateFileString.replace(/##component_name##/g, component);
 
                     fs.appendFile(`${newFolderName}/${component}.jsx`, modifiedData,
 

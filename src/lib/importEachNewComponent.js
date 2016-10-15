@@ -6,7 +6,6 @@ const readTemplate = require('./readTemplate');
 module.exports = function importEachNewComponent(cb) {
   const fs = require('fs');
   const templateFileContents = fs.readFileSync('C:\\Users\\mcravens\\dev\\reactCompGenV2\\src\\ComponentTemplate.jsx', 'utf-8');
-  console.log(templateFileContents);
   regexComponentMatch(
     (matches, parentString, parentPath) => {
       var appendStr = "\n\/\/ Import React Child Components:";
@@ -24,7 +23,7 @@ module.exports = function importEachNewComponent(cb) {
                 const endComponentJSX = templateFileContents.replace(/##component_name##/g, component);
 
                 fs.appendFileSync(`${newDir}\\${component}.jsx`, endComponentJSX);
-                fs.appendFileSync(`${newDir}\\${component}.scss`, '');
+                fs.appendFileSync(`${newDir}\\${component}.scss`, `.${component} \{\n\n\}`);
 
               }
             }
